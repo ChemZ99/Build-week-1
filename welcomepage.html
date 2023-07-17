@@ -3,26 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Welcome Page</title>
-    <style>
-      body {
-        background-image: url(./assets/bg.jpg);
-        background-size: 1920px;
-      }
-
-      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;900&family=Outfit:wght@200;300;400;500;700;800;900&display=swap");
-    </style>
   </head>
   <body>
-    <header><img src="./assets/epicode_logo.png" alt="logo-welcome" height="50px" /></header>
+    <header class="header"><img src="./assets/epicode_logo.png" alt="logo-welcome" height="30px" /></header>
     <main>
-      <h1 class="whiteText">Welcome to <br /><span class="bold whiteText">your exam</span></h1>
-      <h2 class="purpleText">Instructions</h2>
-      <p>
+      <h1 class="paddingTitle outfit whiteText xxl">Welcome to <br /><span class="bold whiteText">your exam</span></h1>
+      <h2 class="paddingText outfit bold purpleText xl">Instructions</h2>
+      <p class="paddingText inter small">
         We don't expect most engineers to know the answers to all of these<br />
         questions, so don't worry if you're unsure of a few of them.
       </p>
-      <ul>
+      <ul class="inter small">
         <li>
           Each question is <span class="bold">timed</span> and can only be <span class="bold">be answered once</span>.
         </li>
@@ -30,9 +24,11 @@
         <li>This exam will take approx. <span class="bold">0-5 minutes</span>.</li>
       </ul>
     </main>
-    <footer>
-      <input type="checkbox" /><span class="bold">I promise to answer myself without help from anyone</span><br />
-      <button>PROCEED</button>
+    <footer class="bold whiteText extraSmall inter">
+      <input type="checkbox" class="custom-checkbox" /><span class="bold"
+        >I promise to answer myself without help from anyone</span
+      >
+      <span class="space"></span><button class="greenButton outfit">PROCEED</button>
     </footer>
   </body>
 </html>

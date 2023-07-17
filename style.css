@@ -13,10 +13,20 @@ body {
   margin-left: 10rem;
   margin-right: 10rem;
   color: white;
+  font-weight: 300;
+  line-height: 140%;
 }
 
+.header {
+  padding-top: 30px;
+  padding-bottom: 70px;
+}
+
+h1 {
+  line-height: 80%;
+}
 .bold {
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .centered {
@@ -32,13 +42,88 @@ body {
 }
 
 .greenButton {
-}
-
-.answerButton {
+  padding: 15px 50px 15px 50px;
+  border-radius: 0%;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #00ffff;
+  border-style: none;
+  box-shadow: 0px 0px 19px #00ffff;
 }
 
 .imgLogo {
   height: 4rem;
   margin-top: 3rem;
   margin-bottom: 1rem;
+}
+
+.xxl {
+  font-size: 60px;
+}
+
+.xl {
+  font-size: 23px;
+}
+
+.extraSmall {
+  font-size: 14px;
+}
+
+.small {
+  font-size: 16px;
+}
+
+.outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+.paddingTitle {
+  padding: 0px 0px 30px 0px;
+}
+
+.paddingText {
+  padding: 0px 0px 20px 0px;
+}
+
+footer {
+  display: inline-block;
+  margin-top: 60px;
+}
+.custom-checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+/* Hide the default checkbox input */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+/* Style the custom checkbox when checked */
+.custom-checkbox input[type="checkbox"]:checked + .custom-checkbox::before {
+  content: "\2713";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  font-size: 14px;
+  color: black;
+  text-align: center;
+  line-height: 18px;
+}
+
+/* Add hover effect */
+.custom-checkbox:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.space {
+  margin-left: 200px;
 }
