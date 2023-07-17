@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(./assets/bg.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  color: white;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.centered {
+  text-align: center;
+}
+
+.whiteText {
+  color: white;
+}
+
+.purpleText {
+  color: #c1168d;
+}
+
+.greenButton {
+}
+
+.answerButton {
+}
+
+.imgLogo {
+  height: 4rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
