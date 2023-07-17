@@ -23,12 +23,26 @@ body {
   text-align: center;
 }
 
+.left {
+  text-align: left;
+  margin-right: 10rem;
+}
+
+.right {
+  text-align: right;
+  margin-left: 10rem;
+}
+
 .whiteText {
   color: white;
 }
 
 .purpleText {
   color: #c1168d;
+}
+
+.limeText {
+  color: #00ffff;
 }
 
 .greenButton {
@@ -41,4 +55,62 @@ body {
   height: 4rem;
   margin-top: 3rem;
   margin-bottom: 1rem;
+}
+
+.xxl {
+  font-size: 60px;
+}
+
+.small {
+  font-size: 16px;
+}
+
+.small2 {
+  font-size: 20px;
+}
+
+.outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+.inter {
+  font-family: "Inter", sans-serif;
+}
+
+.undertitle {
+  font-size: 35px;
+  line-height: 3rem;
+}
+
+.sectionElement {
+  display: inline-block;
+}
+
+.questionsize {
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 2rem;
+}
+
+.description {
+  line-height: 1.5rem;
+  letter-spacing: 0.1rem;
+}
+
+.rateUsButton {
+  background: linear-gradient(to right, #281059, #431866);
+  width: 16rem;
+  height: 4rem;
+  border: 1px solid #ffffff;
+  font-size: 25px;
+  box-shadow: 20px 20px 20px #40246f61, -20px -20px 20px #40246f61, 20px -20px 20px #40246f61, -20px 20px 20px #40246f61;
+}
+
+.sectionSpace {
+  padding-top: 15rem;
+  padding-bottom: 15rem;
+}
+
+.enclosure {
+  max-width: 280px;
 }
