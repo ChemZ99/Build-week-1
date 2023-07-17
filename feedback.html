@@ -3,41 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
     <title>Document</title>
   </head>
   <body>
     <!--immagine con il logo dentro al header -->
     <header>
-      <img src="./assets/epicode_logo.png" alt="logo epicode" />
+      <img class="imgLogo" src="./assets/epicode_logo.png" alt="logo epicode" />
     </header>
     <!-- si comincia con tutto il testo e le imm delle stelline-->
     <main class="scritte">
-      <h1>Tell us how it's going</h1>
-      <h4>
+      <h1 class="bold centered whiteText xxl outfit">Tell us how it's going</h1>
+      <h4 class="centered whiteText small inter">
         Fron 0 to 10, how likely are you to recommend EPICODE <br />
         to a friend or a colleague?
       </h4>
       <!--div classe stelle che contiene tutte le 10 stelle che sono racchiuse nel proprio div-->
-      <div class="stelle">
-        <div><img src="./assets/star.svg" alt="stella" /></div>
-        <div><img src="./assets/star.svg" alt="stella" /></div>
-        <div><img src="./assets/star.svg" alt="stella" /></div>
-        <div><img src="./assets/star.svg" alt="stella" /></div>
-        <div><img src="./assets/star.svg" alt="stella" /></div>
-        <div><img src="./assets/star.svg" alt="stella" /></div>
-        <div><img src="./assets/star.svg" alt="stella" /></div>
-        <div><img src="./assets/star.svg" alt="stella" /></div>
-        <div><img src="./assets/star.svg" alt="stella" /></div>
-        <div><img src="./assets/star.svg" alt="stella" /></div>
+      <div class="centered">
+        <div class="stelle"><img src="./assets/star.svg" alt="stella" /></div>
+        <div class="stelle"><img src="./assets/star.svg" alt="stella" /></div>
+        <div class="stelle"><img src="./assets/star.svg" alt="stella" /></div>
+        <div class="stelle"><img src="./assets/star.svg" alt="stella" /></div>
+        <div class="stelle"><img src="./assets/star.svg" alt="stella" /></div>
+        <div class="stelle"><img src="./assets/star.svg" alt="stella" /></div>
+        <div class="stelle"><img src="./assets/star.svg" alt="stella" /></div>
+        <div class="stelle"><img src="./assets/star.svg" alt="stella" /></div>
+        <div class="stelle"><img src="./assets/star.svg" alt="stella" /></div>
+        <div class="stelle"><img src="./assets/star.svg" alt="stella" /></div>
       </div>
-      <h4>Leave us an open feedback about your experience so far</h4>
-      <form class="commento">
-        <input type="text" placeholder="Scrivi qui il tuo commento" />
+      <h4 class="centered whiteText small inter">Leave us an open feedback about your experience so far</h4>
+      <form class="centered whiteText small">
+        <input class="commento" type="text" placeholder="       Write your comment here" />
       </form>
     </main>
     <!--semplicemente in buttono con la scritta maggiori informazioni-->
-    <footer>
-      <button>More info</button>
+    <footer class="centered">
+      <button class="greenButton">MORE INFO</button>
     </footer>
   </body>
 </html>
