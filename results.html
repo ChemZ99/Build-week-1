@@ -12,6 +12,7 @@
     <header>
       <img class="imgLogo" src="./assets/epicode_logo.png" alt="epicode logo" />
     </header>
+    <article id="questionPlace"></article>
     <!-- header con solo il logo dentro in cima alla pagina -->
     <main>
       <div>
@@ -21,8 +22,8 @@
       <section class="centered sectionSpace">
         <div class="sectionElement left">
           <h3 class="xxl outfit">Correct</h3>
-          <p class="bold xxl outfit">testvalue %</p>
-          <p class="inter questionsize">x/x questions</p>
+          <p id="truePercent" class="bold xxl outfit">testvalue %</p>
+          <p id="trueCounter" class="inter questionsize">x/x questions</p>
         </div>
         <div class="centered sectionElement enclosure">
           <h4 class="description bold small2 inter">congratulations!</h4>
@@ -33,8 +34,8 @@
         </div>
         <div class="sectionElement right">
           <h3 class="xxl outfit">Wrong</h3>
-          <p class="bold xxl outfit">testvalue %</p>
-          <p class="inter questionsize">x/x questions</p>
+          <p id="falsePercent" class="bold xxl outfit">testvalue %</p>
+          <p id="falseCounter" class="inter questionsize">x/x questions</p>
         </div>
       </section>
     </main>
@@ -47,5 +48,6 @@
     <!-- footer contenente il singolo bottone rate us per passare alla pagina di valutazione -->
 
     <script src="./script.js"></script>
+    <script src="ResultsFeature.js"></script>
   </body>
 </html>
