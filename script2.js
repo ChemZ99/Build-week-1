@@ -92,41 +92,51 @@ const easyQuestions = [
 const globalResults = [];
 const allQuestions = document.getElementById("Questions");
 const allButtons = document.getElementsByClassName("answerButton");
+const onlyQuestions = [];
+let finalquestion = "";
 
 console.log(easyQuestions);
 console.log(allButtons);
 
-// clono incorrect answers
-// pusho la correct answer dentro il nuovo array
-// sull array clonato applichiamo forEach per crearci i bottoni
-// il foreach fornisce la singola risposta
-// per ogni risposta creiamo un bottone
-// applichiamo innertext e onclick
-// utilizziamo l event del click per leggere event.target.innerText che sara il testo del bottone
-// confrontiamo l innerText con l arr[i].correct_answer per capire se la risposta e giusta o sbagliata
-// se e giusta sommiamo 1 a un contatore
-// appendere tutti i bottoni
+let overindex = 0;
 
-const quizEpicode = function (arr) {
-  for (let i = 0; i < arr.length; ) {
-    allQuestions.innerText = arr[i].question;
-    console.log(allQuestions);
-    allButtons[0].innerText = arr[i].correct_answer;
-    allButtons[1].innerText = arr[i].incorrect_answers[0];
-    allButtons[2].innerText = arr[i].incorrect_answers[1];
-    allButtons[3].innerText = arr[i].incorrect_answers[2];
-    console.log(allButtons);
-
-    allButtons[0].onclick = () => {
-      globalResults.push(true);
-      i++;
-    };
-    allButtons[(1, 2, 3)].onclick = () => {
-      globalResults.push(false);
-      i++;
-    };
+const questionHalfBold = function (arr, jind) {
+  for (let i = 0; i < arr.length; i++) {
+    onlyQuestions.push(arr[i].question);
   }
+  console.log(onlyQuestions);
+
+  let questarr = onlyQuestions[jind].split(" ");
+  let firsthalfarr = questarr.slice(0, questarr.length / 2);
+  let secondhalfarr = questarr.slice(questarr.length / 2, questarr.length);
+  console.log(firsthalfarr);
+  console.log(secondhalfarr);
+  finalquestion = `${firsthalfarr.join(" ")} <span style="font-weight: 700">${secondhalfarr.join(" ")}</span>`;
+  return finalquestion;
+};
+questionHalfBold(easyQuestions, overindex);
+console.log(finalquestion);
+
+const applyHTMLtext = function (arr, index) {
+  allQuestions.innerHTML = questionHalfBold(arr, index);
+  allButtons[0].innerText = arr[index].correct_answer;
+  allButtons[1].innerText = arr[index].incorrect_answers[0];
+  allButtons[2].innerText = arr[index].incorrect_answers[1];
+  allButtons[3].innerText = arr[index].incorrect_answers[2];
+};
+
+applyHTMLtext(easyQuestions, overindex);
+
+allButtons[0].onclick = () => {
+  globalResults.push(true);
+  overindex++;
+  applyHTMLtext(easyQuestions, overindex);
+};
+
+allButtons[(1, 2, 3)].onclick = () => {
+  globalResults.push(false);
+  overindex++;
+  applyHTMLtext(easyQuestions, overindex);
 };
 
 console.log(globalResults);
-quizEpicode(easyQuestions);
