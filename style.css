@@ -106,6 +106,7 @@ h1 {
 .small2 {
   font-size: 20px;
 }
+
 .xl {
   font-size: 23px;
 }
@@ -129,6 +130,7 @@ h1 {
 
 .sectionElement {
   display: inline-block;
+  line-height: 4rem;
 }
 
 .questionsize {
@@ -152,8 +154,8 @@ h1 {
 }
 
 .sectionSpace {
-  padding-top: 15rem;
-  padding-bottom: 15rem;
+  padding-top: 3rem;
+  padding-bottom: 2rem;
 }
 
 .enclosure {
