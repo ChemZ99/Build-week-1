@@ -96,25 +96,28 @@ const allButtons = document.getElementsByClassName("answerButton");
 console.log(easyQuestions);
 console.log(allButtons);
 
-const quizEpicode = function (arr) {
-  for (let i = 0; i < arr.length; i++) {
-    allQuestions.innerText = arr[i].question;
-    console.log(allQuestions);
-    allButtons[0].innerText = arr[i].correct_answer;
-    allButtons[1].innerText = arr[i].incorrect_answers[0];
-    allButtons[2].innerText = arr[i].incorrect_answers[1];
-    allButtons[3].innerText = arr[i].incorrect_answers[2];
-    console.log(allButtons);
-    allButtons[0].onclick = () => {
+let overindex = 0;
+
+const applyHTMLtext = function (arr, index) {
+  allQuestions.innerText = arr[index].question;
+  allButtons[0].innerText = arr[index].correct_answer;
+  allButtons[1].innerText = arr[index].incorrect_answers[0];
+  allButtons[2].innerText = arr[index].incorrect_answers[1];
+  allButtons[3].innerText = arr[index].incorrect_answers[2];
+};
+
+applyHTMLtext(easyQuestions, overindex);
+
+/* allButtons[0].onclick = () => {
       globalResults.push(true);
-      i++;
+      overindexi++;
     };
     allButtons[(1, 2, 3)].onclick = () => {
       globalResults.push(false);
       i++;
     };
   }
-};
+}; */
 
 console.log(globalResults);
 quizEpicode(easyQuestions);
