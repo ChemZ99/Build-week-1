@@ -105,6 +105,7 @@ h1 {
 
 .small2 {
   font-size: 20px;
+}
 .xl {
   font-size: 23px;
 }
@@ -157,6 +158,8 @@ h1 {
 
 .enclosure {
   max-width: 280px;
+}
+
 .paddingTitle {
   padding: 0px 0px 30px 0px;
 }
@@ -165,7 +168,7 @@ h1 {
   padding: 0px 0px 20px 0px;
 }
 
-footer {
+.footerwelcome {
   display: inline-block;
   margin-top: 60px;
 }
