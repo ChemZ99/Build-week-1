@@ -1,5 +1,3 @@
-const globalResults = [true, true, true, true, true, true, true, false, false, false];
-
 // dichiaro l array con i risultati e gli applico dei valori per testare la funzione
 
 const truePercentTarget = document.getElementById("truePercent");

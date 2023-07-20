@@ -96,7 +96,7 @@ const allButtons = document.getElementsByClassName("answerButton");
 console.log(easyQuestions);
 console.log(allButtons);
 
-let overindex = 0;
+/* let overindex = 0;
 
 const applyHTMLtext = function (arr, index) {
   allQuestions.innerText = arr[index].question;
@@ -107,18 +107,6 @@ const applyHTMLtext = function (arr, index) {
 };
 
 applyHTMLtext(easyQuestions, overindex);
-
-/* allButtons[0].onclick = () => {
-// clono incorrect answers
-// pusho la correct answer dentro il nuovo array
-// sull array clonato applichiamo forEach per crearci i bottoni
-// il foreach fornisce la singola risposta
-// per ogni risposta creiamo un bottone
-// applichiamo innertext e onclick
-// utilizziamo l event del click per leggere event.target.innerText che sara il testo del bottone
-// confrontiamo l innerText con l arr[i].correct_answer per capire se la risposta e giusta o sbagliata
-// se e giusta sommiamo 1 a un contatore
-// appendere tutti i bottoni
 
 const quizEpicode = function (arr) {
   for (let i = 0; i < arr.length; ) {
@@ -139,7 +127,48 @@ const quizEpicode = function (arr) {
       i++;
     };
   }
-}; */
+}; 
 
 console.log(globalResults);
-quizEpicode(easyQuestions);
+quizEpicode(easyQuestions); 
+*/
+
+// ---------------------------- //
+
+// clono incorrect answers x
+// pusho la correct answer dentro il nuovo array x
+// sull array clonato applichiamo forEach per crearci i bottoni x
+// il foreach fornisce la singola risposta x
+// per ogni risposta creiamo un bottone x
+// applichiamo innertext e onclick x
+
+// utilizziamo l event del click per leggere event.target.innerText che sara il testo del bottone
+// confrontiamo l innerText con l arr[i].correct_answer per capire se la risposta e giusta o sbagliata
+// se e giusta sommiamo 1 a un contatore
+// appendere tutti i bottoni
+
+let index = 0;
+
+let contatoreRisultati = 0;
+
+const containerDiv = document.querySelector(".container");
+
+const selectAnswer = function (event) {
+  if (event.target.innerText === easyQuestions[index].correct_answer) {
+    contatoreRisultati++;
+  }
+};
+
+const quizCreation = function (arr, index) {
+  const allAnswers = easyQuestions[index].incorrect_answers.map((copy) => copy);
+  allAnswers.push(easyQuestions[index].correct_answer);
+  allAnswers.forEach((element) => {
+    const buttons = document.createElement("button");
+    buttons.classList.add("answerbutton");
+    buttons.innerText = element;
+    buttons.onclick = selectAnswer;
+    containerDiv.appendChild(buttons);
+  });
+};
+
+quizCreation(easyQuestions, index);

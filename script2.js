@@ -88,8 +88,6 @@ const easyQuestions = [
     ],
   },
 ];
-
-const globalResults = [];
 const allQuestions = document.getElementById("Questions");
 const allButtons = document.getElementsByClassName("answerButton");
 const onlyQuestions = [];
