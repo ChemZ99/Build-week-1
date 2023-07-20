@@ -236,3 +236,5 @@ const globalResultsDisplay = function (resultsArr) {
   falseCounterTarget.innerText = `${falseresults} / ${resultsArr.length} questions`;
   // assegno i valori ottenuti come innertext agli elementi html in modo da riscriverli in modo dinamico alla fine della funzione
 };
+
+// setTimeout chiede una funzione come primo parametro e il numero di millisecondi per far scatenare la funzione come secondo parametro. Al momento del click, fuori dal timeout si valuta la domanda (verde = giusto; rosso = sbagliato); allo scadere dei millisecondi si scatena la funzione secondaria, ovvero mandare avanti il quiz alla domanda seguente.
