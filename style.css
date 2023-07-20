@@ -178,3 +178,7 @@ h1 {
 .space {
   margin-left: 200px;
 }
+
+.hidden {
+  display: none;
+}

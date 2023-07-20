@@ -12,8 +12,8 @@ const easyQuestions = [
     type: "multiple",
     difficulty: "easy",
     question: "In any programming language, what is the most common way to iterate through an array?",
-    correct_answer: "&#039;For&#039; loops",
-    incorrect_answers: ["&#039;If&#039; Statements", "&#039;Do-while&#039; loops", "&#039;While&#039; loops"],
+    correct_answer: "For loops",
+    incorrect_answers: ["If Statements", "Do-while loops", "While loops"],
   },
   {
     category: "Science: Computers",
@@ -35,7 +35,7 @@ const easyQuestions = [
     category: "Science: Computers",
     type: "multiple",
     difficulty: "easy",
-    question: "If you were to code software in this language you&#039;d only be able to type 0&#039;s and 1&#039;s.",
+    question: "If you were to code software in this language you'd only be able to type 0s and 1s.",
     correct_answer: "Binary",
     incorrect_answers: ["JavaScript", "C++", "Python"],
   },
@@ -44,10 +44,10 @@ const easyQuestions = [
     type: "multiple",
     difficulty: "easy",
     question: "What does the Prt Sc button do?",
-    correct_answer: "Captures what&#039;s on the screen and copies it to your clipboard",
+    correct_answer: "Captures what's on the screen and copies it to your clipboard",
     incorrect_answers: [
       "Nothing",
-      "Saves a .png file of what&#039;s on the screen in your screenshots folder in photos",
+      "Saves a .png file of what's on the screen in your screenshots folder in photos",
       "Closes all windows",
     ],
   },
@@ -149,17 +149,39 @@ quizEpicode(easyQuestions);
 
 let index = 0;
 
-let contatoreRisultati = 0;
-
 const containerDiv = document.querySelector(".container");
 
+const hiddenElements = document.getElementsByClassName("hidden");
+
 const selectAnswer = function (event) {
-  if (event.target.innerText === easyQuestions[index].correct_answer) {
-    contatoreRisultati++;
+  if (index < 9) {
+    if (event.target.innerText === easyQuestions[index].correct_answer) {
+      globalResults.push(true);
+    } else {
+      globalResults.push(false);
+    }
+    containerDiv.innerHTML = "";
+    index++;
+    quizCreation(easyQuestions, index);
+  } else {
+    if (event.target.innerText === easyQuestions[index].correct_answer) {
+      globalResults.push(true);
+    } else {
+      globalResults.push(false);
+    }
+    containerDiv.innerHTML = "";
+    globalResultsDisplay(globalResults);
+    for (i = 0; i < hiddenElements.length; i++) {
+      hiddenElements[i].classList.remove("hidden");
+    }
   }
 };
 
 const quizCreation = function (arr, index) {
+  const questions = document.createElement("p");
+  questions.classList.add("questionspace");
+  questions.innerText = easyQuestions[index].question;
+  containerDiv.appendChild(questions);
   const allAnswers = easyQuestions[index].incorrect_answers.map((copy) => copy);
   allAnswers.push(easyQuestions[index].correct_answer);
   allAnswers.forEach((element) => {
@@ -172,3 +194,38 @@ const quizCreation = function (arr, index) {
 };
 
 quizCreation(easyQuestions, index);
+
+// dichiaro l array con i risultati e gli applico dei valori per testare la funzione
+
+const truePercentTarget = document.getElementById("truePercent");
+const trueCounterTarget = document.getElementById("trueCounter");
+const falsePercentTarget = document.getElementById("falsePercent");
+const falseCounterTarget = document.getElementById("falseCounter");
+
+// seleziono tutti gli elementi che devo andare a modificare con i valori ottenuti nella pagina
+
+const globalResultsDisplay = function (resultsArr) {
+  let trueresults = 0;
+  let falseresults = 0;
+  //salvo 2 variabili che saranno il numero di domande giuste e il numero di domande sbagliate
+  for (i = 0; i < resultsArr.length; i++) {
+    if (resultsArr[i] === true) {
+      trueresults++;
+    } else {
+      falseresults++;
+    }
+  }
+  // ciclo l array e vado a salvarmi i valori nelle 2 variabili definite
+  console.log(trueresults);
+  console.log(falseresults);
+  let truesum = (trueresults / resultsArr.length) * 100;
+  let falsesum = (falseresults / resultsArr.length) * 100;
+  // ottengo la percentuale dividendo il valore per la lunghezza dell' array e moltiplicando il risultato per cento
+  console.log(truesum, "%");
+  console.log(falsesum, "%");
+  truePercentTarget.innerText = `${truesum}%`;
+  falsePercentTarget.innerText = `${falsesum}%`;
+  trueCounterTarget.innerText = `${trueresults} / ${resultsArr.length} questions`;
+  falseCounterTarget.innerText = `${falseresults} / ${resultsArr.length} questions`;
+  // assegno i valori ottenuti come innertext agli elementi html in modo da riscriverli in modo dinamico alla fine della funzione
+};
