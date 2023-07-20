@@ -177,6 +177,8 @@ const selectAnswer = function (event) {
   }
 };
 
+console.log(hiddenElements);
+
 const quizCreation = function (arr, index) {
   const questions = document.createElement("p");
   questions.classList.add("questionspace");

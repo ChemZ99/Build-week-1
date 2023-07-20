@@ -12,36 +12,38 @@
     <main>
       <div class="container"></div>
     </main>
-    <div>
+    <div class="hidden">
       <article id="questionPlace"></article>
       <div>
-        <h1 class="bold centered xxl outfit hidden">Results</h1>
-        <h2 class="centered undertitle inter hidden">The summary of your answers:</h2>
+        <h1 class="bold centered xxl outfit">Results</h1>
+        <h2 class="centered undertitle inter">The summary of your answers:</h2>
       </div>
       <section class="centered sectionSpace">
         <div class="sectionElement left">
-          <h3 class="xxl outfit hidden">Correct</h3>
-          <p id="truePercent" class="bold xxl outfit hidden">testvalue %</p>
-          <p id="trueCounter" class="inter questionsize hidden">x/x questions</p>
+          <h3 class="xxl outfit">Correct</h3>
+          <p id="truePercent" class="bold xxl outfit">testvalue %</p>
+          <p id="trueCounter" class="inter questionsize">x/x questions</p>
         </div>
         <div class="centered sectionElement enclosure">
-          <h4 class="description bold small2 inter hidden">congratulations!</h4>
-          <h4 class="description bold small2 inter limeText hidden">You passed the exam.</h4>
+          <h4 class="description bold small2 inter">congratulations!</h4>
+          <h4 class="description bold small2 inter limeText">You passed the exam.</h4>
           <br />
-          <p class="description inter small hidden">We'll send you the certificate in few minutes.</p>
-          <p class="description inter small hidden">Check your email (including promotions / spam folder)</p>
+          <p class="description inter small">We'll send you the certificate in few minutes.</p>
+          <p class="description inter small">Check your email (including promotions / spam folder)</p>
         </div>
         <div class="sectionElement right">
-          <h3 class="xxl outfit hidden">Wrong</h3>
-          <p id="falsePercent" class="bold xxl outfit hidden">testvalue %</p>
-          <p id="falseCounter" class="inter questionsize hidden">x/x questions</p>
+          <h3 class="xxl outfit">Wrong</h3>
+          <p id="falsePercent" class="bold xxl outfit">testvalue %</p>
+          <p id="falseCounter" class="inter questionsize">x/x questions</p>
         </div>
       </section>
       <!-- main suddiviso in titolo in cima e section con i 3 elementi racchiusi in un div sotto, la maggior parte dei
       valori in section andranno introdotti con js, ideato in modo da centrare il titolo sopra e mostrare i 3 blocchi
       sotto come inline block configurabili -->
       <footer class="centered">
-        <button class="centered rateUsButton whiteText bold inter hidden">RATE US</button>
+        <button onclick="window.location.href = `feedback.html`" class="centered rateUsButton whiteText bold inter">
+          RATE US
+        </button>
       </footer>
       <!-- footer contenente il singolo bottone rate us per passare alla pagina di valutazione -->
       <!--<script src="ResultsFeature.js"></script>-->
