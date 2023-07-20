@@ -181,18 +181,23 @@ console.log(hiddenElements);
 
 const quizCreation = function (arr, index) {
   const questions = document.createElement("p");
+  const buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("buttonBox");
+
   questions.classList.add("questionspace");
   questions.innerText = easyQuestions[index].question;
   containerDiv.appendChild(questions);
   const allAnswers = easyQuestions[index].incorrect_answers.map((copy) => copy);
   allAnswers.push(easyQuestions[index].correct_answer);
+
   allAnswers.forEach((element) => {
     const buttons = document.createElement("button");
     buttons.classList.add("answerbutton");
     buttons.innerText = element;
     buttons.onclick = selectAnswer;
-    containerDiv.appendChild(buttons);
+    buttonContainer.appendChild(buttons);
   });
+  containerDiv.appendChild(buttonContainer);
 };
 
 quizCreation(easyQuestions, index);
