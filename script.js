@@ -152,6 +152,29 @@ let index = 0;
 const containerDiv = document.querySelector(".container");
 const hiddenElements = document.getElementsByClassName("hidden");
 
+const questionCounter = [
+  "QUESTION 1/10",
+  "QUESTION 2/10",
+  "QUESTION 3/10",
+  "QUESTION 4/10",
+  "QUESTION 5/10",
+  "QUESTION 6/10",
+  "QUESTION 7/10",
+  "QUESTION 8/10",
+  "QUESTION 9/10",
+  "QUESTION 10/10",
+];
+
+const pageCounter = function (arr) {
+  const pageCounterBox = document.createElement("div");
+  pageCounterBox.classList.add("pageCounterBox");
+  const counterBox = document.createElement("p");
+  counterBox.classList.add("counterbox");
+  counterBox.innerText = arr[index];
+  pageCounterBox.appendChild(counterBox);
+  containerDiv.appendChild(pageCounterBox);
+};
+
 function shuffleArray(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
@@ -209,22 +232,22 @@ const quizCreation = function (arr, index) {
   questions.classList.add("questionspace");
   questions.innerText = easyQuestions[index].question;
   containerDiv.appendChild(questions);
-  const allAnswers = easyQuestions[index].incorrect_answers.map(copy => copy);
+  const allAnswers = easyQuestions[index].incorrect_answers.map((copy) => copy);
   allAnswers.push(easyQuestions[index].correct_answer);
   shuffleArray(allAnswers);
 
-  allAnswers.forEach(element => {
+  allAnswers.forEach((element) => {
     const buttons = document.createElement("button");
     buttons.classList.add("answerbutton");
     buttons.innerText = element;
-    buttons.addEventListener("click", ev => {
+    buttons.addEventListener("click", (ev) => {
       console.log(ev.target);
       if (ev.target.innerText === easyQuestions[index].correct_answer) {
         ev.target.classList.add("greenColor");
       } else {
         ev.target.classList.add("redColor");
         const rightbutton = Array.from(buttonContainer.children);
-        rightbutton.forEach(elem => {
+        rightbutton.forEach((elem) => {
           if (elem.innerText === easyQuestions[index].correct_answer) {
             elem.classList.add("greenColor");
           }
@@ -238,6 +261,7 @@ const quizCreation = function (arr, index) {
     buttonContainer.appendChild(buttons);
   });
   containerDiv.appendChild(buttonContainer);
+  pageCounter(questionCounter);
 };
 
 quizCreation(easyQuestions, index);
