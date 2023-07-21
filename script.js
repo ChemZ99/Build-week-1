@@ -152,23 +152,27 @@ let index = 0;
 const containerDiv = document.querySelector(".container");
 const hiddenElements = document.getElementsByClassName("hidden");
 
-const pageCounter = function () {
-  const questionCounter = [
-    "Question 1/10",
-    "Question 2/10",
-    "Question 3/10",
-    "Question 4/10",
-    "Question 5/10",
-    "Question 6/10",
-    "Question 7/10",
-    "Question 8/10",
-    "Question 9/10",
-    "Question 10/10",
-  ];
-  for (i = 0; i < questionCounter.length; i++) {}
+const questionCounter = [
+  "QUESTION 1/10",
+  "QUESTION 2/10",
+  "QUESTION 3/10",
+  "QUESTION 4/10",
+  "QUESTION 5/10",
+  "QUESTION 6/10",
+  "QUESTION 7/10",
+  "QUESTION 8/10",
+  "QUESTION 9/10",
+  "QUESTION 10/10",
+];
+
+const pageCounter = function (arr) {
+  const pageCounterBox = document.createElement("div");
+  pageCounterBox.classList.add("pageCounterBox");
   const counterBox = document.createElement("p");
-  counterBox.className.add("counterbox");
-  containerDiv.appendChild(counterBox);
+  counterBox.classList.add("counterbox");
+  counterBox.innerText = arr[index];
+  pageCounterBox.appendChild(counterBox);
+  containerDiv.appendChild(pageCounterBox);
 };
 
 function shuffleArray(arr) {
@@ -257,6 +261,7 @@ const quizCreation = function (arr, index) {
     buttonContainer.appendChild(buttons);
   });
   containerDiv.appendChild(buttonContainer);
+  pageCounter(questionCounter);
 };
 
 quizCreation(easyQuestions, index);
