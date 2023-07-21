@@ -150,7 +150,6 @@ quizEpicode(easyQuestions);
 let index = 0;
 
 const containerDiv = document.querySelector(".container");
-
 const hiddenElements = document.getElementsByClassName("hidden");
 
 const pageCounter = function () {
@@ -238,17 +237,23 @@ const quizCreation = function (arr, index) {
     buttons.classList.add("answerbutton");
     buttons.innerText = element;
     buttons.addEventListener("click", (ev) => {
+      console.log(ev.target);
       if (ev.target.innerText === easyQuestions[index].correct_answer) {
-        buttons.classList.add("greenColor");
+        ev.target.classList.add("greenColor");
       } else {
-        buttons.classList.add("redColor");
+        ev.target.classList.add("redColor");
+        const rightbutton = Array.from(buttonContainer.children);
+        rightbutton.forEach((elem) => {
+          if (elem.innerText === easyQuestions[index].correct_answer) {
+            elem.classList.add("greenColor");
+          }
+        });
       }
-    });
-    buttons.onclick = (event) => {
       setTimeout(() => {
-        selectAnswer(event);
+        selectAnswer(ev);
       }, 1000);
-    };
+      console.log(ev);
+    });
     buttonContainer.appendChild(buttons);
   });
   containerDiv.appendChild(buttonContainer);
