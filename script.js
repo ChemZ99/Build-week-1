@@ -172,6 +172,29 @@ const pageCounter = function () {
   containerDiv.appendChild(counterBox);
 };
 
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    let temp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = temp;
+  }
+}
+
+const questionHalfBold = function (arr, index) {
+  const onlyQuestions = [];
+  for (let i = 0; i < arr.length; i++) {
+    onlyQuestions.push(arr[i].question);
+  }
+  let questarr = onlyQuestions[index].split(" ");
+  let firsthalfarr = questarr.slice(0, questarr.length / 2);
+  let secondhalfarr = questarr.slice(questarr.length / 2, questarr.length);
+  console.log(firsthalfarr);
+  console.log(secondhalfarr);
+  finalquestion = `${firsthalfarr.join(" ")} <span style="font-weight: 700">${secondhalfarr.join(" ")}</span>`;
+  return finalquestion;
+};
+
 const selectAnswer = function (event) {
   if (index < 9) {
     if (event.target.innerText === easyQuestions[index].correct_answer) {
@@ -208,12 +231,24 @@ const quizCreation = function (arr, index) {
   containerDiv.appendChild(questions);
   const allAnswers = easyQuestions[index].incorrect_answers.map((copy) => copy);
   allAnswers.push(easyQuestions[index].correct_answer);
+  shuffleArray(allAnswers);
 
   allAnswers.forEach((element) => {
     const buttons = document.createElement("button");
     buttons.classList.add("answerbutton");
     buttons.innerText = element;
-    buttons.onclick = selectAnswer;
+    buttons.addEventListener("click", (ev) => {
+      if (ev.target.innerText === easyQuestions[index].correct_answer) {
+        buttons.classList.add("greenColor");
+      } else {
+        buttons.classList.add("redColor");
+      }
+    });
+    buttons.onclick = (event) => {
+      setTimeout(() => {
+        selectAnswer(event);
+      }, 1000);
+    };
     buttonContainer.appendChild(buttons);
   });
   containerDiv.appendChild(buttonContainer);
@@ -254,6 +289,12 @@ const globalResultsDisplay = function (resultsArr) {
   trueCounterTarget.innerText = `${trueresults} / ${resultsArr.length} questions`;
   falseCounterTarget.innerText = `${falseresults} / ${resultsArr.length} questions`;
   // assegno i valori ottenuti come innertext agli elementi html in modo da riscriverli in modo dinamico alla fine della funzione
+  if (trueresults < 6) {
+    const congrats = document.getElementById("congrats");
+    congrats.innerText = "Disaster!";
+    const passtext = document.getElementById("passtext");
+    passtext.innerText = "You failed the exam.";
+  }
 };
 
 // setTimeout chiede una funzione come primo parametro e il numero di millisecondi per far scatenare la funzione come secondo parametro. Al momento del click, fuori dal timeout si valuta la domanda (verde = giusto; rosso = sbagliato); allo scadere dei millisecondi si scatena la funzione secondaria, ovvero mandare avanti il quiz alla domanda seguente.
