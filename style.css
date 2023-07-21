@@ -20,6 +20,11 @@ body {
 .stelle {
   display: inline-block;
   text-align: center;
+  opacity: 20%;
+}
+
+.stelle:hover {
+  opacity: 100%;
 }
 
 .header {
