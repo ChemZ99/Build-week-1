@@ -153,6 +153,25 @@ const containerDiv = document.querySelector(".container");
 
 const hiddenElements = document.getElementsByClassName("hidden");
 
+const pageCounter = function () {
+  const questionCounter = [
+    "Question 1/10",
+    "Question 2/10",
+    "Question 3/10",
+    "Question 4/10",
+    "Question 5/10",
+    "Question 6/10",
+    "Question 7/10",
+    "Question 8/10",
+    "Question 9/10",
+    "Question 10/10",
+  ];
+  for (i = 0; i < questionCounter.length; i++) {}
+  const counterBox = document.createElement("p");
+  counterBox.className.add("counterbox");
+  containerDiv.appendChild(counterBox);
+};
+
 const selectAnswer = function (event) {
   if (index < 9) {
     if (event.target.innerText === easyQuestions[index].correct_answer) {
