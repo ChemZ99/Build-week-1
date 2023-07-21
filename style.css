@@ -219,3 +219,11 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
+
+.greenColor {
+  background-color: green;
+}
+
+.redColor {
+  background-color: red;
+}
